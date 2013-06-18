@@ -9,8 +9,6 @@ def radix_sort(nums):
         Time: O(n)
         Space: O(n + k)
 
-    Author: Tony Hoare (1960)
-
     Description:
         Wikipedia: https://en.wikipedia.org/wiki/Radix_sort
         Cormen [1]: section 7, page 170

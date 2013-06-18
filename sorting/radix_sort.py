@@ -20,7 +20,7 @@ def radix_sort(nums):
         Although radix sorting itself dates back far longer, counting sort, and its application to radix sorting, were both invented by Harold H. Seward in 1954 at MIT.
     """
     n = len(nums)
-    r = min(1, int(math.log(n, 2)))
+    r = max(1, int(math.log(n, 2)))
     base = 1 << r
     mask = base - 1
     count = [0] * base

@@ -20,11 +20,12 @@ History:
 """
 import math
 
-class Node(object):
-    def __init__(self, key):
+class AvlNode(object):
+    def __init__(self, key, height=0):
         self.key = key
         self.left = None
         self.right = None
+        self.height = height
 
     def __getitem__(self, right):
         return self.right if right else self.left
@@ -34,20 +35,6 @@ class Node(object):
             self.right = node
         else:
             self.left = node
-
-    def rotate(self, right):
-        left = not right
-        other = self[left]
-        assert(other)
-        self[left] = other[right]
-        other[right] = self
-        return other
-
-
-class AvlNode(Node):
-    def __init__(self, key, height=0):
-        Node.__init__(self, key)
-        self.height = height
 
     def children_height(self):
         left_height = self.left.height if self.left else -1
@@ -71,11 +58,14 @@ class AvlNode(Node):
         return True
 
     def rotate(self, right):
-        other = self[not right]
-        result = Node.rotate(self, right)
+        left = not right
+        other = self[left]
+        assert(other)
+        self[left] = other[right]
+        other[right] = self
         self.update_height()
         other.update_height()
-        return result
+        return other
 
     def fix_balance(self):
         self.update_height()

@@ -48,7 +48,7 @@ def merge_sort(nums):
 
         if i <= half:
             # something remains on the left. Move it right
-            assert(nums[i] >= nums[hi])
+            assert nums[i] >= nums[hi]
             remains_count = half - i + 1
             for i in xrange(remains_count):
                 nums[hi - i] = nums[half - i]

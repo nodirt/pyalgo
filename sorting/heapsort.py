@@ -1,5 +1,6 @@
 import test
 
+
 def heapsort(nums):
     """Heapsort
 
@@ -31,7 +32,8 @@ def heapsort(nums):
         nums[i], nums[j] = nums[j], nums[i]
 
     def max_heapify(i):
-        """Fix max-property invariant if the i-th node key is less than any of its children keys
+        """Fix max-property invariant if the i-th node key is less
+        than any of its children keys
 
         Complexity:
             Time: O(log(n/i))
@@ -66,4 +68,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

@@ -49,16 +49,21 @@ def find_max_subarray(array):
             return high_res
 
     return find(0, len(array) - 1)
-            
+
 
 def test():
     def test_max_subarray(array, expected):
         left, right, max_sum = find_max_subarray(array)
         actual = array[left:right + 1]
-        assert(actual == expected)
+        assert actual == expected
 
     test_max_subarray([1, -2, 1, 4, -3], [1, 4])
-    test_max_subarray([13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7], [18, 20, -7, 12])
+    test_max_subarray(
+        [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12,
+         -5, -22, 15, -4, 7],
+        [18, 20, -7, 12]
+    )
+
 
 if __name__ == '__main__':
     test()

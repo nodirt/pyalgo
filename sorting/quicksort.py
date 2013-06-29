@@ -1,5 +1,6 @@
 import test
 
+
 def quick_sort(array):
     """Quicksort
 
@@ -32,7 +33,7 @@ def quick_sort(array):
             if i <= j:
                 array[i], array[j] = array[j], array[i]
                 i += 1
-                j -=1
+                j -= 1
 
         sort(low, j)
         sort(i, high)

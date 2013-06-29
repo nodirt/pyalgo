@@ -1,5 +1,6 @@
 import random
 
+
 def random_order(array):
     """Fisher–Yates shuffle changes array element order randomly
 
@@ -13,7 +14,7 @@ def random_order(array):
 
     History:
         Authors: Fisher, R.A.; Yates, F. (1948)
-        Improved by Richard Durstenfeld in 1964, popularized by Donald E. Knuth 
+        Improved by Richard Durstenfeld in 1964, popularized by Donald E. Knuth
         in volume 2 of his book The Art of Computer Programming.
     """
 

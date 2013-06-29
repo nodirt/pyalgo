@@ -1,6 +1,7 @@
 import operator
 import test
 
+
 class Heap(object):
     """Binary heap with a comparison function.
 
@@ -41,9 +42,13 @@ class Heap(object):
     def compare(self, i, j):
         return self.cmp(self.items[i], self.items[j])
 
+    def swap(self, i, j):
+        self.items[i], self.items[j] = self.items[j], self.items[i]
+
     # O(log(n))
     def max_heapify(self, i):
-        """Fix max-property invariant if the i-th node key is less than any of its children keys
+        """Fix max-property invariant if the i-th node key is less
+        than any of its children keys
 
         Complexity:
             Time: O(log(n/i))
@@ -52,13 +57,14 @@ class Heap(object):
         Assumptions:
             Left and right subtrees of i-th node are heaps
         """
+        items = self.items
         l = self.left(i)
         r = self.right(i)
         if l >= self.size:
             return
         largest = r if r < self.size and self.compare(r, l) > 0 else l
         if self.compare(largest, i) > 0:
-            self.items[i], self.items[largest] = self.items[largest], self.items[i]
+            self.swap(i, largest)
             self.max_heapify(largest)
 
     def heapify_all(self):
@@ -83,7 +89,8 @@ class Heap(object):
         return result
 
     def bubble_up(self, i):
-        """Fix max-property invariant if the i-th node key is greater than its parent
+        """Fix max-property invariant if the i-th node key is greater
+        than its parent
 
         Complexity:
             Time: O(log(i))
@@ -91,7 +98,7 @@ class Heap(object):
 
         Assumptions:
             Left and right subtrees of i-th node are heaps
-        """        
+        """
         while i > 0:
             p = self.parent(i)
             if self.compare(p, i) >= 0:
@@ -107,7 +114,7 @@ class Heap(object):
         Complexity:
             Time: O(log(n))
             Space: O(1)
-        """                
+        """
         if self.size >= len(self.items):
             raise ValueError('Out of capacity')
         self.items[self.size] = key
@@ -136,7 +143,6 @@ def merge_lists(lists):
         bl, bi = b
         return cmp(bl[bi], al[ai])
 
-
     queue = Heap(
         [(l, 0) for l in lists if l],
         cmpFn=cmpLists
@@ -154,12 +160,10 @@ def merge_lists(lists):
 
 def main():
     def test_merge_lists(a, b, c, merged):
-        assert(merged == list(merge_lists([a, b, c])))
-
+        assert merged == list(merge_lists([a, b, c]))
     test_merge_lists([2, 4], [1, 6], [3, 5], [1, 2, 3, 4, 5, 6])
 
     print('All tests passed')
 
 if __name__ == '__main__':
     main()
-

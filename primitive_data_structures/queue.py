@@ -1,10 +1,12 @@
 class Empty(Exception):
     pass
 
+
 class Node(object):
     def __init__(self, item):
         self.item = item
         self.next = None
+
 
 class Queue(object):
     def __init__(self):
@@ -44,20 +46,20 @@ class Queue(object):
 def main():
     n = 10
     q = Queue()
-    assert(q.empty())
-    
+    assert q.empty()
+
     expected = range(n)
     for i, x in enumerate(expected):
-        assert(len(q) == i)
+        assert len(q) == i
         q.enqueue(x)
-        assert(len(q) == i + 1)
-    
+        assert len(q) == i + 1
+
     actual = []
     while not q.empty():
         actual.append(q.dequeue())
-    assert(actual == expected)
-    assert(len(q) == 0)
-    
+    assert actual == expected
+    assert len(q) == 0
+
     print('All tests passed')
 
 

@@ -1,6 +1,7 @@
 import math
 import test
 
+
 def radix_sort(nums):
     """Radix sort
 
@@ -15,8 +16,10 @@ def radix_sort(nums):
 
     History:
         Author: Harold H. Seward (1954), MIT
-        Although radix sorting itself dates back far longer, counting sort, and its 
-        application to radix sorting, were both invented by Harold H. Seward in 1954 at MIT.
+        Although radix sorting itself dates back far longer,
+            counting sort, and its
+        application to radix sorting, were both invented by Harold H. Seward
+            in 1954 at MIT.
     """
     n = len(nums)
     r = max(1, int(math.log(n, 2)))
@@ -43,7 +46,7 @@ def radix_sort(nums):
         for x in reversed(nums):
             key = (x >> s) & mask
             count[key] -= 1
-            assert(count[key] >= 0)
+            assert count[key] >= 0
             buf[count[key]] = x
 
         for i in xrange(n):

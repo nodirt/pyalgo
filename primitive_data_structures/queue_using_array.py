@@ -1,6 +1,7 @@
 class Error(Exception):
     pass
 
+
 class FixedSizeQueue(object):
     def __init__(self, max_size=100):
         self.items = [None] * (max_size + 1)
@@ -43,23 +44,21 @@ class FixedSizeQueue(object):
 def main():
     n = 10
     q = FixedSizeQueue(max_size=n)
-    assert(q.empty())
+    assert q.empty()
 
     expected = range(n)
     for i, x in enumerate(expected):
-        assert(len(q) == i)
+        assertlen(q) == i
         q.enqueue(x)
-        assert(len(q) == i + 1)
-    assert(q.full())
+        assertlen(q) == i + 1
+    assert q.full()
 
     actual = []
     while not q.empty():
         actual.append(q.dequeue())
-    assert(actual == expected)
-    
+    assert actual == expected
     print('All tests passed')
 
 
 if __name__ == '__main__':
     main()
-

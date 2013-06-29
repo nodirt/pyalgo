@@ -1,10 +1,12 @@
 class Empty(Exception):
     pass
 
+
 class Node(object):
     def __init__(self, item):
         self.item = item
         self.next = None
+
 
 class Stack(object):
     def __init__(self):
@@ -35,22 +37,21 @@ class Stack(object):
 def main():
     n = 10
     st = Stack()
-    assert(st.empty())
-    
+    assert st.empty()
+
     expected = range(n)
     for i, x in enumerate(expected):
-        assert(len(st) == i)
+        assert len(st) == i
         st.push(x)
-        assert(len(st) == i + 1)
-
+        assert len(st) == i + 1
     expected.reverse()
-    
+
     actual = []
     while not st.empty():
         actual.append(st.pop())
-    assert(actual == expected)
-    assert(len(st) == 0)
-    
+    assert actual == expected
+    assert len(st) == 0
+
     print('All tests passed')
 
 

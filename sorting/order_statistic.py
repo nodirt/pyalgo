@@ -17,7 +17,7 @@ import random
 
 def order_statistic_recursive(array, order):
     def find(lo, hi, order):
-        assert(order >= 0 and order <= hi - lo)
+        assert order >= 0 and order <= hi - lo
         if lo >= hi:
             return array[lo]
 
@@ -50,9 +50,9 @@ def order_statistic_iterative(array, order):
     lo = 0
     hi = len(array) - 1
     while True:
-        assert(order >= 0 and order <= hi - lo)
+        assert order >= 0 and order <= hi - lo
         if lo >= hi:
-            assert(order == 0)
+            assert order == 0
             return array[lo]
 
         p = array[lo + (hi - lo) // 2]
@@ -85,8 +85,7 @@ def main():
         array = range(n)
         random.shuffle(array)
         for i in xrange(n):
-            assert(fn(array, i) == i)
-
+            assert fn(array, i) == i
     test(order_statistic_recursive)
     test(order_statistic_iterative)
 

@@ -1,6 +1,7 @@
 class Error(Exception):
     pass
 
+
 class FixedSizeStack(object):
     def __init__(self, max_size=100):
         self.items = [None] * max_size
@@ -33,21 +34,19 @@ class FixedSizeStack(object):
 def main():
     n = 10
     st = FixedSizeStack(max_size=n)
-    assert(st.empty())
-
+    assert st.empty()
     expected = range(n)
     for i, x in enumerate(expected):
-        assert(len(st) == i)
+        assert len(st) == i
         st.enqueue(x)
-        assert(len(st) == i + 1)
-    assert(st.full())
-
+        assert len(st) == i + 1
+    assert st.full()
     expected.reverse()
     actual = []
     while not st.empty():
         actual.append(st.dequeue())
-    assert(actual == expected)
-    
+    assert actual == expected
+
     print('All tests passed')
 
 

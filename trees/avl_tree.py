@@ -20,6 +20,7 @@ History:
 """
 import math
 
+
 class AvlNode(object):
     def __init__(self, key, height=0):
         self.key = key
@@ -60,7 +61,7 @@ class AvlNode(object):
     def rotate(self, right):
         left = not right
         other = self[left]
-        assert(other)
+        assert other
         self[left] = other[right]
         other[right] = self
         self.update_height()
@@ -76,16 +77,15 @@ class AvlNode(object):
         right = left_height > right_height
         left = not right
         other = self[left]
-        assert(other)
-        
+        assert other
+
         if not other[left]:
             other = other.rotate(left)
             self[left] = other
         result = self.rotate(right)
-        assert(result == other)
-        assert(other.is_balanced() and self.is_balanced())
+        assert result == other
+        assert other.is_balanced() and self.is_balanced()
         return result
-
 
     def insert(self, key):
         if self.key == key:
@@ -183,25 +183,20 @@ def main():
 
     def test_height():
         expected_height = math.log(len(tree), 2)
-        assert(abs(expected_height - tree.height()) < 2)
-
+        assert abs(expected_height - tree.height()) < 2
     for x in xrange(100):
         tree.insert(x)
-        assert(tree.is_balanced())
-
+        assert tree.is_balanced()
     test_height()
 
     for x in xrange(1, 100, 9):
         del tree[x]
-        assert(tree.is_balanced())
-
+        assert tree.is_balanced()
     test_height()
 
     ordered = []
     tree.in_order(lambda n: ordered.append(n.key))
-    assert(ordered == list(sorted(ordered)))
-    
-
+    assert ordered == list(sorted(ordered))
 
     print('All tests passed')
 

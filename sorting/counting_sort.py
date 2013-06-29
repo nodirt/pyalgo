@@ -16,7 +16,9 @@ def counting_sort(items, k):
 
     History:
         Author: Harold H. Seward (1954)
-        Although radix sorting itself dates back far longer, counting sort, and its application to radix sorting, were both invented by Harold H. Seward in 1954.
+        Although radix sorting itself dates back far longer, counting sort,
+            and its application to radix sorting,
+            were both invented by Harold H. Seward in 1954.
 
     """
     count = [0] * k

@@ -1,7 +1,9 @@
 import test
 
+
 def three_way_quicksort(nums):
-    """3-way quicksort, works faster than original quicksort when input contains duplicates.
+    """3-way quicksort, works faster than original quicksort
+    when input contains duplicates.
 
     Properties:
         Time: O(n^2). Average: O(n * log(n))
@@ -14,14 +16,15 @@ def three_way_quicksort(nums):
 
     History:
         Author: Tony Hoare (1960), Sedgewick (1970s)
-        Was improved by J. Bentley and D. McIlroy in 1990s and got popularity
+        Was improved by J. Bentley and D. McIlroy in 1990s
+        and got popularity
     """
     def sort(lo, hi):
         if lo >= hi:
             return
-        lt = lo - 1 # last x < p
-        i = lo # current number
-        gt = hi + 1 # first x > p
+        lt = lo - 1  # last x < p
+        i = lo  # current number
+        gt = hi + 1  # first x > p
         p = nums[lo + (hi - lo) // 2]
         while i < gt:
             x = nums[i]
@@ -44,6 +47,7 @@ def three_way_quicksort(nums):
 def main():
     test.test_sort(three_way_quicksort)
     print('All tests passed')
+
 
 if __name__ == '__main__':
     main()

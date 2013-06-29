@@ -1,5 +1,6 @@
 import test
 
+
 def insertion_sort(nums):
     """Insertion sort. Suitable for small arrays or nearly sorted arrays.
 

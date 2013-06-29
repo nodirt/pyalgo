@@ -20,6 +20,7 @@ def bucket_sort(nums, min=0, max=1):
         buckets[bi].append(x)
 
     for b in buckets:
+        # use insertion sort to sort buckets
         for i in xrange(1, len(b)):
             x = b[i]
             j = i
@@ -27,6 +28,7 @@ def bucket_sort(nums, min=0, max=1):
                 b[j] = b[j - 1]
                 j -= 1
             b[j] = x
+            
         assert(test.is_sorted(b))
 
     i = 0

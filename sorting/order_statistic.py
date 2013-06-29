@@ -16,9 +16,6 @@ import random
 
 
 def order_statistic_recursive(array, order):
-    if order < 0 or order >= len(array):
-        raise ValueError('Order must be between 0 and len(array) - 1')
-
     def find(lo, hi, order):
         assert(order >= 0 and order <= hi - lo)
         if lo >= hi:
@@ -50,12 +47,10 @@ def order_statistic_recursive(array, order):
 
 
 def order_statistic_iterative(array, order):
-    if order < 0 or order >= len(array):
-        raise ValueError('Order must be between 0 and len(array) - 1')
-
     lo = 0
     hi = len(array) - 1
     while True:
+        assert(order >= 0 and order <= hi - lo)
         if lo >= hi:
             assert(order == 0)
             return array[lo]

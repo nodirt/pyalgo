@@ -29,7 +29,6 @@ def counting_sort(items, k):
     copy = items[:]
     for x in reversed(copy):
         count[x] -= 1
-        assert(count[x] >= 0)
         items[count[x]] = x
 
 

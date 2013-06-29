@@ -27,6 +27,9 @@ def heapsort(nums):
     def right(i):
         return 2 * i + 1
 
+    def swap(i, j):
+        nums[i], nums[j] = nums[j], nums[i]
+
     def max_heapify(i):
         """Fix max-property invariant if the i-th node key is less than any of its children keys
 
@@ -43,7 +46,7 @@ def heapsort(nums):
             return
         largest = r if r < heap_size and nums[r] > nums[l] else l
         if nums[largest] > nums[i]:
-            nums[i], nums[largest] = nums[largest], nums[i]
+            swap(i, largest)
             max_heapify(largest)
 
     for i in xrange(n // 2, -1, -1):
@@ -52,7 +55,7 @@ def heapsort(nums):
     # O(n*log(n))
     while heap_size > 0:
         heap_size -= 1
-        nums[heap_size], nums[0] = nums[0], nums[heap_size]
+        swap(heap_size, 0)
         max_heapify(0)
 
 

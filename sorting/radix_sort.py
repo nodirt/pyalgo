@@ -9,18 +9,17 @@ def radix_sort(nums):
         Time: O(n)
         Space: O(n + k)
 
-    Author: Tony Hoare (1960)
-
     Description:
         Wikipedia: https://en.wikipedia.org/wiki/Radix_sort
         Cormen [1]: section 7, page 170
 
     History:
         Author: Harold H. Seward (1954), MIT
-        Although radix sorting itself dates back far longer, counting sort, and its application to radix sorting, were both invented by Harold H. Seward in 1954 at MIT.
+        Although radix sorting itself dates back far longer, counting sort, and its 
+        application to radix sorting, were both invented by Harold H. Seward in 1954 at MIT.
     """
     n = len(nums)
-    r = min(1, int(math.log(n, 2)))
+    r = max(1, int(math.log(n, 2)))
     base = 1 << r
     mask = base - 1
     count = [0] * base
